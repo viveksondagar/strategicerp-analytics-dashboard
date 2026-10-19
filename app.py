@@ -146,12 +146,6 @@ projects = st.sidebar.multiselect(
     get_options("Project_Name"),
 )
 
-statuses = st.sidebar.multiselect(
-    "Development status",
-    get_options("Dev_Status"),
-)
-
-
 # -------------------- APPLY FILTERS --------------------
 
 filtered = df.copy()
@@ -171,10 +165,6 @@ if teams:
 
 if projects:
     filtered = filtered[filtered["Project_Name"].isin(projects)]
-
-if statuses:
-    filtered = filtered[filtered["Dev_Status"].isin(statuses)]
-
 
 if filtered.empty:
     st.warning("No records match the selected filters.")
